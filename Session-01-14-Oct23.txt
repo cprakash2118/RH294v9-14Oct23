@@ -1,0 +1,175 @@
+###
+Product - Red Hat Ansible Automation Platform 2.x (APP 2.2) 
+https://www.ansible.com/
+https://docs.ansible.com/ansible/latest/index.html
+
+Old product:
+Ansible Engine (Ansible Core, etc)
+Ansible Tower (Controller & Other AAP components).
+
+
+###
+RH official Training:-
+RH294v9 (APP 2.x)
+
+EX294v9K
+
+####
+Classroom Environment.
+1) Users
+As per LAB:-
+ student/student (Passwordless authentication-ssh , with password authorization)
+ FYI- when ssh (no password required, when do sudo then password).
+ 
+ devops/redhat - (Passwordless authentication-ssh , passwordless authorization)
+ FYI- when ssh (no password required for ssh and sudo).
+ 
+ root/redhat 
+ 
+***** TYpe of authentication-ssh & authorization-sudo 
+user1 - no ssh password, no sudo password 
+user2 - no ssh password, yes sudo password
+user3 - Yes ssh password, yes sudo password
+
+
+2) VMs 
+  workstation.lab.example.com   - Controle node (INstalled ansible)
+  server[a:d].lab.example.com   - managed hosts (Ansible playbooks deployed).
+    
+
+####
+1) Simple (YAML lang)
+2) Powerfull 
+    - Used for applications deployment 
+	- Configuration Management (CM) - Customized 
+	- WorkFlow Automation
+	- Netwrok Automation (Router & Switches)
+	- Orchestration (Complete Application Life Cycle management)
+
+3) Agentless (ssh/python packages). 
+   ssh - Linux/Unix/Network Devices 
+   winrm - window 
+   
+Python/Power shell 
+
+##########
+Ansible Automation Platform components:-
+- Ansible Core 
+- Ansible Content collection 
+- Ansible Navigator 
+
+
+
+
+########
+Login to RedHat labs 
+https://rol.redhat.com (User/Password)
+
+Login to workstation (open console) as student/student.
+
+inventory 
+ansible.cfg 
+ansible-navigator.yml 
+
+install ansible - 
+1) OPen Source (EPEL)  - No Enterprise Support from RH, Only community support).
+2) With RHEL image (BaseOS & AppStream) - WIth limited support 
+3) Down main product - AAP 2.x (60 days with RH support)
+
+
+
+How to install ansible 
+# yum install ansible-navigaror ansible-core 
+or
+# dnf install ansible-navigaror ansible-core 
+
+inventory 
+ansible.cfg
+
+1st Priority -
+  ANSIBLE_CONFIG=/var/tmp/ansible.cfg 
+  FYI- 
+    Define Variable (ANSIBLE_CONFIG)
+	And ansible.cfg file also must be in defined location.
+	
+
+2nd Priority:-
+   ansible.cfg must be present on PWD 
+   pwd (ansible.cfg) must be present
+
+3rd Priority:-
+    ansible.cfg file must be at user's home dir with the same ".ansible.cfg"
+    /home/user-name/.ansible.cfg 
+
+
+4) Default location - /etc/ansible/ansible.cfg 
+
+
+************
+ ansible.cfg file 
+ 
+1st Priority -
+  ANSIBLE_CONFIG=/var/tmp/ansible.cfg 
+  FYI- 
+    Define Variable (ANSIBLE_CONFIG)
+	And ansible.cfg file also must be in defined location.
+	
+
+2nd Priority:-
+   ansible.cfg must be present on PWD 
+   pwd (ansible.cfg) must be present
+
+3rd Priority:-
+    ansible.cfg file must be at user's home dir with the same ".ansible.cfg"
+    /home/user-name/.ansible.cfg 
+
+
+4) Default location - /etc/ansible/ansible.cfg 	
+
+
+##########
+ansible-navigator.yml 
+
+
+1st Priority -
+  ANSIBLE_NAVIGATOR_CONFIG=/var/tmp/ansible-navigator.yml 
+  FYI- 
+    Define Variable (ANSIBLE_CONFIG)
+	And ansible-navigator.yml file also must be in defined location.
+	
+
+2nd Priority:-
+   ansible-navigator.yml must be present on PWD 
+   pwd (ansible-navigator.yml) must be present
+
+3rd Priority:-
+    ansible-navigator.yml file must be at user's home dir with the same ".ansible-navigator.yml"
+    /home/user-name/.ansible-navigator.yml 
+ 
+########################
+- list 
+   - abc 
+   - 123 
+   - jhghkj
+   
+ dictionary1 = {name: john, age: 25, exp: 10Year}
+ dictionary2 
+    - name: john 
+      age: 25
+      exp: 10Year 
+	    
+    - name: jack 
+      age: 28
+      exp: 12Year 
+	  
+===================
+- install apache (httpd)
+- start & enable apache service 
+- Deploy application - index.html 
+- Install firewalld 
+- Start & Enable firewalld 
+- Adding 80/http to firewalld 
+
+
+   	  
+  
