@@ -1,0 +1,24 @@
+---
+- name: Describe your play - 1st play 
+  hosts: test 
+  tasks:
+    - name: Display/print message - task-01 
+      ansible.builtin.debug:
+          msg: "Print message - task-01"
+
+    - name: Display/print message - task-02
+      ansible.builtin.debug:
+          msg: "Print message - task-02"
+
+    - name: Display/print message - task-03 
+      ansible.builtin.debug:
+          msg: "Print message - task-03"
+
+- name: Describe your play - 2nd play
+  hosts: dev 
+  tasks: 
+    - name: Display/print message from 2nd-play - task-01 
+      ansible.builtin.debug:
+          msg: "Print message - task-01 - From 2nd play"
+
+

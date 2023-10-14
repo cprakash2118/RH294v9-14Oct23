@@ -1,0 +1,40 @@
+---
+- name: Describe your play - Apache Deployment - 1st play
+  hosts: test 
+  tasks: 
+    - name: Install apache package - httpd 
+      ansible.builtin.yum: 
+         name: httpd 
+         state: present 
+
+    - name: start & enable apache service - httpd 
+      ansible.builtin.service:
+         name: httpd
+         state: started 
+         enabled: true 
+
+    - name: Deploy application - index.html 
+      ansible.builtin.copy:
+         content: "This is my web server - \n"
+         dest: /var/www/html/index.html 
+         
+    - name: Install firewall package - firewalld 
+      ansible.builtin.yum: 
+         name: firewalld
+         state: present 
+
+    - name: start & enable firewalld service - firewalld
+      ansible.builtin.service:
+         name: firewalld
+         state: started 
+         enabled: true
+
+    - name: Adding firewalld rules - http
+      ansible.posix.firewalld:
+         service: http
+         immediate: yes
+         permanent: yes
+         state: enabled
+
+             
+   

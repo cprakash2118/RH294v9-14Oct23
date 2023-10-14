@@ -1,0 +1,16 @@
+---
+- name: Discribe your work - Play-1st 
+  hosts: prod 
+  tasks:
+    - name: Task-01 
+      ansible.builtin.group:
+          name: unixadm 
+          state: present 
+
+    - name: Task-02 
+      ansible.builtin.user:
+          name: user1
+          group: unixadm 
+          uid: 12345
+          state: present 
+...
