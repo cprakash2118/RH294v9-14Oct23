@@ -1,0 +1,11 @@
+---
+- name: This is an example of host level variable.
+  hosts: all 
+  tasks:
+     - name: Task-01
+       ansible.builtin.debug:
+           #msg: "Value of user_name is {{ user_name }}"
+           msg: "Value of user_name is {{ user_name }}"
+       when: 
+         - inventory_hostname in groups['prod'] 
+         - inventory_hostname == 'servera.lab.example.com'

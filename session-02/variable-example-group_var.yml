@@ -1,0 +1,13 @@
+---
+- name: This is an example of host level variable.
+  hosts: all 
+  vars:
+    - var1: defined-in-playbook-play-level
+  tasks:
+     - name: Task-01
+       ansible.builtin.debug:
+           msg: "Value of var1 is {{ var1 }}"
+
+     - name: Task-02
+       ansible.builtin.debug:
+           msg: "Value of var2 is {{ var2 }}"

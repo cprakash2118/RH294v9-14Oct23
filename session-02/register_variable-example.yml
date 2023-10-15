@@ -1,0 +1,15 @@
+---
+- name: Register example 
+  hosts: dev 
+  tasks:
+     - name: Example for register 
+       ansible.builtin.shell: timedatectl 
+       register: outcome 
+
+     - name: Display value 
+       ansible.builtin.debug:
+          var: outcome  
+
+     - name: Display-register-value 
+       ansible.builtin.debug:
+         msg: "Value - {{ outcome.stdout_lines[4]}}"

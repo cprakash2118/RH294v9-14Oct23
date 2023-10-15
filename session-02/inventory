@@ -1,0 +1,12 @@
+[prod]
+servera.lab.example.com 
+serverb.lab.example.com 
+
+[dev]
+serverc.lab.example.com    user_name=john-dev
+
+[test]
+serverd.lab.example.com    user_name=john-test 
+
+[prod:vars]
+user_name=john-prod

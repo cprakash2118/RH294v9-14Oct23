@@ -1,0 +1,25 @@
+---
+- name: Vars example 
+  hosts: dev 
+  vars:
+      - var1: value1-var1
+      - var2: value2-var2
+      - var3: value4-var3
+  tasks:
+    - name: Display task-01 
+      ansible.builtin.debug:
+           msg: "From task-01-play-01 - var1={{var1}}"
+
+    - name: Display task-02 
+      ansible.builtin.debug:
+           msg: "From task-02-play-01 - var2={{var2}}"
+
+    - name: Display task-03
+      vars:
+        - var3: value3-var3
+      ansible.builtin.debug:
+           msg: "From task-03-play-01 - var3={{var3}}"
+
+    - name: Display task-04
+      ansible.builtin.debug:
+           msg: "From task-04-play-01 - var3={{var3}}"
