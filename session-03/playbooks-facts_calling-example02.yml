@@ -5,11 +5,11 @@
   tasks:
      - name: Display task-01 
        ansible.builtin.debug:
-            msg: "IP Address -  {{ ansible_default_ipv4.address }}" 
+            msg: |
+              "OS distrribution -  {{ ansible_distribution }}
+               OS major version - {{ ansible_distribution_major_version}}"
 
      - name: Display task-02
        ansible.builtin.debug:
             msg: "MAC Address -  {{ ansible_default_ipv4.macaddress }}" 
  
- 
-

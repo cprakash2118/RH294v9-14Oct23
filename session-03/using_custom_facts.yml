@@ -1,0 +1,8 @@
+---
+- name: Calling my custom facts 
+  hosts: web 
+  tasks:
+    - name: Display my custom facts.
+      ansible.builtin.debug:
+         msg: "Value is = {{ ansible_local.chandra.general.package }}"
+

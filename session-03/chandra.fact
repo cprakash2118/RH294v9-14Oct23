@@ -1,0 +1,6 @@
+[general]
+package = httpd
+service = httpd
+state = started
+enabled = true
+minor_version = 4.5.6
