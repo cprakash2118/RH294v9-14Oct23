@@ -1,0 +1,12 @@
+---
+- name: Display play-01 
+  hosts: prod 
+  tasks:
+    - name: Display-01 - task-01 
+      ansible.builtin.debug:
+         msg: "VG created"
+
+    - name: Display-02 - task-02
+      ansible.builtin.debug:
+         msg: "LVM created"
+

@@ -1,0 +1,10 @@
+---
+ ansible-navigator:
+   execution-environment:
+     image: utility.lab.example.com/ee-supported-rhel8:latest
+     #image: utility.lab.example.com/ee-supported-rhel8-cisco-iso:2.11
+     pull:
+      policy: missing 
+   playbook-artifact:
+     enable: false
+...
