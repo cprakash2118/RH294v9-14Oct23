@@ -1,0 +1,50 @@
+---
+- name: Deploy Apache web server.
+  hosts: web2
+  tasks:
+     - name: Install apache package.
+       ansible.builtin.dnf:
+           name: httpd
+           state: present 
+
+     - name: Start & enable apache service.
+       ansible.builtin.service:
+           name: httpd
+           state: started
+           enabled: yes
+
+     - name: Install firewalld 
+       ansible.builtin.yum: 
+           name: firewalld 
+           state: present 
+
+     - name: Start and enable firewalld service.
+       ansible.builtin.service:
+           name: firewalld 
+           state: started 
+           enabled: yes
+
+     - name: Deploy application - index.html 
+       ansible.builtin.copy:
+           content: "This is my web server - {{ inventory_hostname }}\n"
+           dest: /var/www/html/index.html 
+  
+     - name: adding firewall rules - http/https w.r.t. TCP 
+       ansible.posix.firewalld:
+           service: http
+           immediate: yes
+           permanent: yes
+           state: enabled
+
+- name: 2nd play 
+  hosts: localhost
+  become: false 
+  tasks:
+     - name: Using URI to verify the deployment 
+       ansible.builtin.uri:
+          #url: http://serverc.lab.example.com
+          url: http://servere.lab.example.com
+          return_content: yes
+          status_code: 200
+       ignore_errors: yes
+

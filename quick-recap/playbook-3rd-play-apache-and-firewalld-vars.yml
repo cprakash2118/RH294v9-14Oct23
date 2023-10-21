@@ -1,0 +1,42 @@
+---
+- name: Apache deployment using ansible variable 
+  hosts: web2
+  vars:
+    - apache_package: httpd
+    - apache_service: httpd
+    - firewall_package: firewalld
+    - firewall_service: firewalld 
+    - firewall_rules: http
+    - name: "CHandra Prakash"
+  tasks:
+    - name: "INstall apache package - {{  apache_package }} {{name }}"
+      ansible.builtin.dnf: 
+        name: "{{ apache_package }}"
+        state: present 
+
+
+    - name: "STart and enable apache service {{ apache_service }}"
+      ansible.builtin.service:
+        name: "{{ apache_service }}"
+        state: started 
+        enabled: yes
+
+    - name: "INstall firewalld package - {{  firewall_package }}"
+      ansible.builtin.dnf: 
+        name: "{{ firewall_package }}"
+        state: present 
+
+
+    - name: "STart and enable firewall service {{ firewall_service }}"
+      ansible.builtin.service:
+        name: "{{ firewall_service }}"
+        state: started 
+        enabled: yes
+ 
+
+    - name: Deploy application - index.html
+      ansible.builtin.copy:
+           content: "This is my web server - {{ inventory_hostname }}\n"
+           dest: /var/www/html/index.html
+ 
+
