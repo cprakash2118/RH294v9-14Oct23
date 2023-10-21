@@ -1,0 +1,14 @@
+---
+- name: Display facts variable 
+  hosts: web
+  tasks:
+     - name: Display task-01 
+       ansible.builtin.debug:
+            msg: "IP Address -  {{ ansible_default_ipv4.address }}" 
+
+     - name: Display task-02
+       ansible.builtin.debug:
+            msg: "MAC Address -  {{ ansible_default_ipv4.macaddress }}" 
+ 
+ 
+
