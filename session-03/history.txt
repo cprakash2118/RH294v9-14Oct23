@@ -1,0 +1,753 @@
+    1  mkdir work 
+    2  cd work/
+    3  pwd
+    4  git clone https://github.com/cprakash2118/RH294v9-14Oct23
+    5  ll
+    6  cd RH294v9-14Oct23/
+    7  pwd
+    8  ll
+    9  git status 
+   10  mkdir Session-01 
+   11  mv Session-01 session-01
+   12  cd session-01/
+   13  pwd
+   14  ll
+   15  pwd
+   16  #git clone https://github.com/cprakash2118/RH294v9-14Oct23
+   17  pwd
+   18  touch inventory ansible.cfg ansible-navigator.yml 
+   19  file * 
+   20  vim inventory 
+   21  cat inventory 
+   22  file * 
+   23  #ansible
+   24  #ansible-navigator 
+   25  #ansible-vault 
+   26  #ansible-galaxy 
+   27  #ansible-builder 
+   28  rpm -qa | grep ansible 
+   29  lll
+   30  ll
+   31  cat inventory 
+   32  ansible prod -m ping 
+   33  ansible prod -i inventory -m ping 
+   34  ansible --version
+   35  ansible-navigator --version 
+   36  ansible --version
+   37  file * 
+   38  ansible prod -i inventory -m ping 
+   39  ansible dev -i inventory -m ping 
+   40  ansible test -i inventory -m ping 
+   41  ansible test,prod -i inventory -m ping 
+   42  ansible test,prod,dev -i inventory -m ping 
+   43  ansible all -i inventory -m ping 
+   44  ansible all -i inventory -m shell -a "uptime"
+   45  ansible all -i inventory -m shell -a "rpm -qa | grep kernel "
+   46  ansible all -i inventory -m shell -a "uname -r"
+   47  ll
+   48  file * 
+   49  ansible --version 
+   50  ll
+   51  mv ansible.cfg ansible.cfG
+   52  ll
+   53  ansible --version 
+   54  ll
+   55  env  | grep ANSIBLE_CONFIG 
+   56  export ANSIBLE_CONFIG=/var/tmp/ansible.cfg
+   57  env  | grep ANSIBLE_CONFIG 
+   58  ls -l /var/tmp/ansible.cfg
+   59  touch /var/tmp/ansible.cfg
+   60  ls -l /var/tmp/ansible.cfg
+   61  env  | grep ANSIBLE_CONFIG 
+   62  ansible --version 
+   63  unset ANSIBLE_CONFIG 
+   64  env  | grep ANSIBLE_CONFIG 
+   65  ansible --version 
+   66  ll
+   67  pwd
+   68  ll
+   69  mv ansible.cfG ansible.cfg
+   70  ll
+   71  ansible --version 
+   72  ll
+   73  mv ansible.cfg ansible.cf
+   74  ll
+   75  ansible --version 
+   76  touch ~/.ansible.cfg 
+   77  ansible --version 
+   78  cat /home/student/.ansible.cfg
+   79  pwd
+   80  ll
+   81  file * 
+   82  vim ansible.cf 
+   83  mv ansible.cf ansible.cfg
+   84  vim ansible.cfg 
+   85  pwd
+   86  ll
+   87  mkdir payment-app booking-app
+   88  ll
+   89  rm -rf booking-app payment-app 
+   90  ll
+   91  vim -O ansible.cfg inventory 
+   92  file * 
+   93  vim ansible-navigator.yml 
+   94  podman images
+   95  podman rmi -fa 
+   96  podman images
+   97  vim -o inventory ansible.cfg ansible-navigator.yml 
+   98  vim -O inventory ansible.cfg ansible-navigator.yml 
+   99  ansible-navigator images
+  100  vim ansible-navigator.yml 
+  101  ansible-navigator images
+  102  podman login utility.lab.example.com 
+  103  echo admin/redhat
+  104  ansible-navigator images
+  105  podman images
+  106  #ansible-navigator images
+  107  vim ansible-navigator.yml 
+  108  vim -O ansible.cfg ansible-navigator.yml 
+  109  ansible-navigator doc -l
+  110  ansible-navigator doc -m stdout amazon.aws.ec2
+  111  ll
+  112  file *
+  113  vim playbook.yml 
+  114  ansible-navigator doc -m stdout ansible.builtin.yum
+  115  vim playbook.yml 
+  116  ansible-navigator doc  ansible.builtin.service 
+  117  ansible-navigator doc -m stdout  ansible.builtin.service 
+  118  ansible-navigator doc  ansible.builtin.service 
+  119  ansible-navigator doc -m stdout  ansible.builtin.service 
+  120  vim playbook.yml 
+  121  ansible-navigator run -m stdout playbook.yml --syntax 
+  122  ansible-navigator run -m stdout playbook.yml --syntax-check
+  123  ansible-navigator run playbook.yml 
+  124  ansible-navigator run -m stdout playbook.yml 
+  125  vim -O ansible.cfg ansible-navigator.yml playbook.yml 
+  126  podman images
+  127  podman rmi -fa 
+  128  podman images
+  129  ansible-navigator run -m stdout playbook.yml 
+  130  grep /run/user/1000/
+  131  ansible-navigator run -m stdout playbook.yml 
+  132  cat ansible-navigator.yml 
+  133  ssh servera -l root
+  134  ll
+  135  vim -O ansible.cfg ansible-navigator.yml playbook.yml 
+  136  vim -O  ansible-navigator.yml playbook.yml 
+  137  ansible-navigator run -m stdout playbook.yml --syntax 
+  138  ansible-navigator run -m stdout playbook.yml -C
+  139  ansible-navigator run -m stdout playbook.yml 
+  140  ll
+  141  git status 
+  142  cd ..
+  143  git status 
+  144  git add .
+  145  git status 
+  146  git commit -m "update"
+  147  git push 
+  148  ll
+  149  pwd
+  150  ll
+  151  cd session-01/
+  152  pwd
+  153  ll
+  154  vim playbook-1st.yml 
+  155  vim ~/.vimrc
+  156  vim playbook-1st.yml 
+  157  ansible-navigator run -m stdout playbook-1st.yml --syntax 
+  158  ansible-navigator run -m stdout playbook-1st.yml -C
+  159  ansible-navigator run -m stdout playbook-1st.yml 
+  160  ssh servea -l root 
+  161  ssh servera -l root 
+  162  vim playbook-1st.yml 
+  163  ansible-navigator doc -m stdout ansible.builtin.group
+  164  ansible-navigator doc -m stdout ansible.builtin.user
+  165  vim playbook-1st.yml 
+  166  vim playbook-2nd.yml 
+  167  vim ~/.vimrc 
+  168  cat ~/.vimrc
+  169  ls -l /home/student/.vimrc 
+  170  vim playbook-2nd.yml 
+  171  ansible-navigator run -m stdout playbook-2nd.yml --syntax
+  172  ansible-navigator run -m stdout playbook-2nd.yml -C
+  173  ansible-navigator run -m stdout playbook-2nd.yml 
+  174  vim playbook-2nd.yml 
+  175  vim playbook-apache_deployment.yml 
+  176  ansible-navigator doc -m stdout ansible.posix.firewalld
+  177  vim playbook-apache_deployment.yml 
+  178  ansible-navigator doc -m stdout ansible.posix.firewalld
+  179  vim playbook-apache_deployment.yml 
+  180  ansible-navigator doc -m stdout ansible.posix.firewalld
+  181  vim playbook-apache_deployment.yml 
+  182  ansible-navigator run -m stdout playbook-apache_deployment.yml --syntac
+  183  ansible-navigator run -m stdout playbook-apache_deployment.yml --syntax
+  184  ansible-navigator run -m stdout playbook-apache_deployment.yml 
+  185  curl http://servera.lab.example.com 
+  186  curl http://serverd.lab.example.com 
+  187  ansible-navigator run -m stdout playbook-apache_deployment.yml 
+  188  vim playbook-apache_deployment.yml 
+  189  ansible-navigator run -m stdout playbook-apache_deployment.yml 
+  190  curl http://serverd.lab.example.com 
+  191  ll
+  192  cp -rpv playbook-apache_deployment.yml playbook-apache_deployment-multiple-nodes.yml 
+  193  vim playbook-apache_deployment-multiple-nodes.yml
+  194  ansible-navigator run playbook-apache_deployment-multiple-nodes.yml --syntax
+  195  ansible-navigator run playbook-apache_deployment-multiple-nodes.yml -m stdout 
+  196  curl http://serverd.lab.example.com 
+  197  curl http://servera.lab.example.com 
+  198  curl http://serverb.lab.example.com 
+  199  curl http://serverc.lab.example.com 
+  200  vim playbook-apache_deployment-multiple-nodes.yml
+  201  ansible prod -m setup |less
+  202  ll
+  203  vim playbook-apache_deployment-multiple-nodes.yml 
+  204  vim playbook-apache_deployment-vars_example-01.yml 
+  205  vim playbook-apache_deployment-multiple-nodes.yml
+  206  vim playbook-apache_deployment-vars_example-01.yml 
+  207  vim playbook-apache_deployment-multiple-nodes.yml
+  208  vim playbook-apache_deployment-vars_example-01.yml 
+  209  ansible-navigator run -m stdout playbook-apache_deployment-vars_example-01.yml --syntax
+  210  ansible-navigator run -m stdout playbook-apache_deployment-vars_example-01.yml 
+  211  vim playbook-apache_deployment-vars_example-01.yml 
+  212  ansible-navigator run -m stdout playbook-apache_deployment-vars_example-01.yml 
+  213  #ansible-navigator run -m stdout playbook-apache_deployment-vars_example-01.yml 
+  214  cp -rpv playbook-apache_deployment-vars_example-01.yml playbook-apache_deployment-vars_example-02.yml
+  215  vim playbook-apache_deployment-vars_example-02.yml
+  216  vim vars.yml 
+  217  vim playbook-apache_deployment-vars_example-02.yml
+  218  vim vars.yml 
+  219  vim -O playbook-apache_deployment-vars_example-02.yml vars.yml 
+  220  ansible-navigator run playbook-apache_deployment-vars_example-02.yml -m stdout 
+  221  vim -O playbook-apache_deployment-vars_example-01.yml playbook-apache_deployment-vars_example-02.yml
+  222  ansible-navigator run playbook-apache_deployment-vars_example-02.yml -m stdout -e apache_pkg=mutt
+  223  vim playbook-apache_deployment-vars_example-02.yml
+  224  ansible-navigator run playbook-apache_deployment-vars_example-02.yml -m stdout -e apache_pkg=mutt
+  225  ansible-navigator run playbook-apache_deployment-vars_example-02.yml -m stdout 
+  226  vim playbook-apache_deployment-vars_example-02.yml
+  227  cd ..
+  228  pwd
+  229  git branch 
+  230  git status 
+  231  git add .
+  232  git status 
+  233  git commit -m update
+  234  git push 
+  235  podman images
+  236  podman ps
+  237  pwd
+  238  cd work/
+  239  pwd
+  240  ll
+  241  cd RH294v9-14Oct23/
+  242  pwd
+  243  l
+  244  ll
+  245  mkdir session-02
+  246  cp -rpv session-01/ansible.cfg session-02/
+  247  cp -rpv session-01/ansible-navigator.yml session-02/
+  248  cp -rpv session-01/inventory session-02/
+  249  cd session-02/
+  250  pwd
+  251  ll
+  252  vim variable-example-01-vars.yaml 
+  253  ansible-navigator run -m stdout variable-example-01-vars.yaml --syntax
+  254  ansible-navigator run -m stdout variable-example-01-vars.yaml
+  255  cp -rpv variable-example-01-vars.yaml variable-example-01-vars_files.yaml 
+  256  vim variable-example-01-vars_files.yaml 
+  257  vim vars.yml 
+  258  vim variable-example-01-vars_files.yaml 
+  259  ansible-navigator run -m stdout variable-example-01-vars_files.yaml --syntax
+  260  ansible-navigator run -m stdout variable-example-01-vars_files.yaml
+  261  vim variable-example-01-vars_files.yaml 
+  262  vim vars.yml 
+  263  vim variable-example-01-vars_files.yaml 
+  264  ansible-navigator run -m stdout variable-example-01-vars_files.yaml
+  265  vim -O variable-example-01-vars.yaml vars.yml variable-example-01-vars_files.yaml 
+  266  ll
+  267  vim -O vars.yml variable-example-01-vars_files.yaml 
+  268  pwd
+  269  mv vars.yml ../
+  270  ll
+  271  vim -O vars.yml variable-example-01-vars_files.yaml 
+  272  vim variable-example-01-vars_files.yaml 
+  273  ansible-navigator run -m stdout variable-example-01-vars_files.yaml
+  274  vim variable-example-01-vars_files.yaml 
+  275  pwd
+  276  vim variable-example-01-vars_files.yaml 
+  277  ansible-navigator run -m stdout variable-example-01-vars_files.yaml
+  278  vim variable-example-01-vars_files.yaml 
+  279  ll
+  280  cp -rpv variable-example-01-vars.yaml variable-example-02-vars.yaml 
+  281  vim variable-example-02-vars.yaml
+  282  ansible-navigator run -m stdout variable-example-02-vars.yaml --syntax 
+  283  ansible-navigator run -m stdout variable-example-02-vars.yaml 
+  284  vim variable-example-02-vars.yaml
+  285  ansible-navigator run -m stdout variable-example-02-vars.yaml 
+  286  vim variable-example-02-vars.yaml
+  287  ansible-navigator run -m stdout variable-example-02-vars.yaml 
+  288  vim variable-example-02-vars.yaml
+  289  vim inventory 
+  290  vim variable-example-host-var.yml 
+  291  ansible-navigator run -m stdout variable-example-host-var.yml --syntax
+  292  ansible-navigator run -m stdout variable-example-host-var.yml 
+  293  vim inventory 
+  294  vim variable-example-host-var.yml 
+  295  vim inventory 
+  296  vim variable-example-host-var.yml 
+  297  vim inventory 
+  298  vim variable-example-host-var.yml 
+  299  ansible-navigator run -m stdout variable-example-host-var.yml --syntax
+  300  vim inventory 
+  301  ansible-navigator run -m stdout variable-example-host-var.yml --syntax
+  302  ansible-navigator run -m stdout variable-example-host-var.yml 
+  303  vim -O inventory variable-example-host-var.yml 
+  304  vim variable-example-host-var.yml 
+  305  ansible-navigator run -m stdout variable-example-host-var.yml 
+  306  vim variable-example-host-var.yml 
+  307  ansible-navigator run -m stdout variable-example-host-var.yml 
+  308  vim variable-example-host-var.yml 
+  309  ansible-navigator run -m stdout variable-example-host-var.yml 
+  310  vim variable-example-host-var.yml 
+  311  ll
+  312  mkdir host_vars
+  313  mkdir group_vars
+  314  vim group_vars/prod
+  315  cp -rpv variable-example-host-var.yml variable-example-group_var.yml 
+  316  vim variable-example-group_var.yml
+  317  ansible-navigator run -m stdout variable-example-group_var.yml --syntax 
+  318  ansible-navigator run -m stdout variable-example-group_var.yml 
+  319  vim group_vars/prod 
+  320  ansible-navigator run -m stdout variable-example-group_var.yml 
+  321  vim group_vars/prod 
+  322  vim variable-example-group_var.yml
+  323  ansible-navigator run -m stdout variable-example-group_var.yml 
+  324  tree
+  325  cat group_vars/prod 
+  326  cat inventory 
+  327  cd group_vars/
+  328  ll
+  329  cp -rpv prod dev 
+  330  cp -rpv prod test 
+  331  vim dev 
+  332  vim test 
+  333  cd ..
+  334  tree group_vars/
+  335  vim variable-example-group_var.yml
+  336  ansible-navigator run -m stdout variable-example-group_var.yml 
+  337  tree group_vars/
+  338  cat group_vars/prod 
+  339  cat group_vars/test 
+  340  cat group_vars/dev 
+  341  vim variable-example-group_var.yml
+  342  ansible-navigator run -m stdout variable-example-group_var.yml 
+  343  vim variable-example-group_var.yml
+  344  ansible-navigator run -m stdout variable-example-group_var.yml -e var1=ALLLLLL
+  345  ll
+  346  vim register_variable-example.yml 
+  347  ansible-navigator run -m stdout register_variable-example.yml --syntax
+  348  ansible-navigator run -m stdout register_variable-example.yml 
+  349  vim register_variable-example.yml 
+  350  ansible-navigator run -m stdout register_variable-example.yml 
+  351  vim register_variable-example.yml 
+  352  ansible-navigator run -m stdout register_variable-example.yml 
+  353  vim register_variable-example.yml 
+  354  ansible-navigator run -m stdout register_variable-example.yml 
+  355  vim register_variable-example.yml 
+  356  ansible-navigator run -m stdout register_variable-example.yml 
+  357  vim register_variable-example.yml 
+  358  ansible-navigator run -m stdout register_variable-example.yml 
+  359  vim register_variable-example.yml 
+  360  ansible-navigator run -m stdout register_variable-example.yml 
+  361  vim register_variable-example.yml 
+  362  l
+  363  ll
+  364  cd ..
+  365  tree
+  366  git add .
+  367  git commit -m "update"
+  368  git push 
+  369  ll
+  370  git status 
+  371  git commit -m "update"
+  372  git push 
+  373  git branch 
+  374  ll
+  375  mv vars.yml session-02/
+  376  cd session-02/
+  377  git status 
+  378  git add .
+  379  git commit -m update
+  380  git push 
+  381  ll
+  382  cd ..
+  383  #git clone https://github.com/cprakash2118/RH294v9-14Oct23
+  384  git clone https://github.com/cprakash2118/RH294v9-14Oct23
+  385  ll
+  386  tree RH294v9-14Oct23/
+  387  cp -rv session-02 RH294v9-14Oct23/
+  388  cd RH294v9-14Oct23/
+  389  ll
+  390  git status 
+  391  git add .
+  392  git status 
+  393  git commit -m "update"
+  394  git push 
+  395  pwd
+  396  ll
+  397  mkdir work-02
+  398  cd work-02/
+  399  pwd
+  400  ll
+  401  git clone https://github.com/cprakash2118/RH294v9-14Oct23
+  402  ll
+  403  cd RH294v9-14Oct23/
+  404  ll
+  405  mkdir quick-recap 
+  406  cd quick-recap/
+  407  pwd
+  408  ll
+  409  touch inventory ansible.cfg ansible-navigator.yml playbook-1st-play.yml 
+  410  ll
+  411  file *
+  412  vim inventory 
+  413  ansible prod -m ping 
+  414  ansible prod -i inventory -m ping 
+  415  ansible --version 
+  416  cat ansible.cfg 
+  417  ansible prod -m ping 
+  418  ansible prod -i inventory -m ping 
+  419  ping -c 2 servea
+  420  ping -c 2 servera
+  421  cat inventory 
+  422  ansible prod -m ping 
+  423  cat ansible.cfg 
+  424  ll
+  425  ansible --version 
+  426  pwd
+  427  ls -l
+  428  ansible prod -m ping 
+  429  ansible prod -i inventory -m ping 
+  430  vim ansible.cfg 
+  431  cp inventory myinventory 
+  432  vim myinventory 
+  433  ansible prod -m ping 
+  434  ansible web -m ping 
+  435  ll
+  436  vim ansible
+  437  vim ansible.cfg 
+  438  ansible web -m ping 
+  439  vim myinventory 
+  440  ansible web -m ping 
+  441  ansible prod -i inventory -m ping 
+  442  cat myinventory 
+  443  ll
+  444  cat ansible.cfg 
+  445  cat ./myinventory 
+  446  vim inventory 
+  447  vim -O inventory myinventory 
+  448  ansible web -m ping 
+  449  ansible web -i inventory -m ping 
+  450  cat ansible.cfg 
+  451  ll
+  452  mv inventory inventory-1
+  453  mkdir inventory
+  454  ll
+  455  mv inventory-1 myinventory inventory
+  456  ll
+  457  tree
+  458  vim ansible.cfg 
+  459  vim inventory/myinventory 
+  460  vim inventory/inventory-1 
+  461  ansible lb -m ping 
+  462  ansible prod -m ping 
+  463  ansible prod2 -m ping 
+  464  ansible prod-2 -m ping 
+  465  ansible web-2 -m ping 
+  466  ansible web2 -m ping 
+  467  ansible web -m ping 
+  468  tree
+  469  cat ansible.cfg 
+  470  ansible web -i inventory/myinventory -m ping 
+  471  ll
+  472  vim ansible.cfg 
+  473  ssh servera -l root
+  474  ll
+  475  vim ansible.cfg 
+  476  vim ansible-navigator.yml 
+  477  tree
+  478  vim ansible-navigator.yml 
+  479  cat ansible-navigator.yml 
+  480  podman images
+  481  podman  rmi -fa utility.lab.example.com/ee-supported-rhel8:latest 
+  482  podman  rmi -af utility.lab.example.com/ee-supported-rhel8:latest 
+  483  podman  rmi f utility.lab.example.com/ee-supported-rhel8:latest 
+  484  podman  rmi af utility.lab.example.com/ee-supported-rhel8:latest 
+  485  podman images
+  486  ansible-navigator images
+  487  vim ansible-navigator.yml 
+  488  ansible-navigator images
+  489  podman login utility.lab.example.com
+  490  ansible-navigator images
+  491  ansible-navigator imagesvim playbook-1st-play.yml 
+  492  #vim playbook-1st-play.yml 
+  493  vim ansible-navigator.yml 
+  494  podman imageges
+  495  podman images
+  496  vim ansible-navigator.yml 
+  497  ll
+  498  vim playbook-1st-play.yml 
+  499  ansible-playbook run -m stdout playbook-1st-play.yml --syntax
+  500  ansible-navigator run -m stdout playbook-1st-play.yml --syntax
+  501  ansible-navigator run -m stdout playbook-1st-play.yml --check 
+  502  ansible-navigator run -m stdout playbook-1st-play.yml
+  503  vim playbook-1st-play-example-2.yml 
+  504  ansible-navigator run -m stdout playbook-1st-play-example-2.yml --syntax
+  505  ansible-navigator run -m stdout playbook-1st-play-example-2.yml 
+  506  vim -O playbook-1st-play-example-2.yml playbook-1st-play.yml 
+  507  ll
+  508  git branch 
+  509  git status 
+  510  git add .
+  511  git status 
+  512  git commit -m "update"
+  513  git push 
+  514  vim -O playbook-1st-play-example-2.yml playbook-1st-play.yml 
+  515  vim ~/.vimrc
+  516  vim playbook-1st-play.yml 
+  517  vim ~/.vimrc
+  518  vim file.yml 
+  519  ll
+  520  mv file.yml /tmp/
+  521  pwd
+  522  ll
+  523  ansible-navigator doc ansible.builtin.dnf
+  524  ansible-navigator doc -m stdout ansible.builtin.dnf
+  525  !
+  526  ansible-navigator doc -l 
+  527  ll
+  528  vim playbook-2nd-play-apache-and-firewalld.yml 
+  529  vim ~/.vimrc 
+  530  vim playbook-2nd-play-apache-and-firewalld.yml 
+  531  ansible-galaxy role init apache 
+  532  tree apache 
+  533  vim apache/tasks/main.yml 
+  534  #vim apache/tasks/grub-upgrade.yml 
+  535  vim playbook-2nd-play-apache-and-firewalld.yml 
+  536  ansible-navigator doc ansible.posix.firewalld
+  537  ansible-navigator doc ansible.posix.firewalld -m stdout
+  538  vim playbook-2nd-play-apache-and-firewalld.yml 
+  539  ansible-navigator doc ansible.posix.firewalld -m stdout
+  540  vim playbook-2nd-play-apache-and-firewalld.yml 
+  541  ansible-navigator doc ansible.builtin.uri -m stdout
+  542  vim playbook-2nd-play-apache-and-firewalld.yml 
+  543  ansible-navigator run -m stdout playbook-2nd-play-apache-and-firewalld.yml --syntax
+  544  ansible-navigator run -m stdout playbook-2nd-play-apache-and-firewalld.yml -C
+  545  ansible-navigator run -m stdout playbook-2nd-play-apache-and-firewalld.yml 
+  546  curl http://serverc.lab.example.com
+  547  vim playbook-2nd-play-apache-and-firewalld.yml 
+  548  curl http://serverd.lab.example.com
+  549  vim playbook-2nd-play-apache-and-firewalld.yml 
+  550  curl http://servere.lab.example.com
+  551  ansible-navigator run -m stdout playbook-2nd-play-apache-and-firewalld.yml 
+  552  vim playbook-2nd-play-apache-and-firewalld.yml 
+  553  ansible-navigator run -m stdout playbook-2nd-play-apache-and-firewalld.yml 
+  554  vim playbook-2nd-play-apache-and-firewalld.yml 
+  555  ansible-navigator run -m stdout playbook-2nd-play-apache-and-firewalld.yml 
+  556  vim playbook-2nd-play-apache-and-firewalld.yml 
+  557  ll
+  558  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  559  vim /tmp/da.yml 
+  560  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  561  vim /tmp/da.yml 
+  562  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  563  vim playbook-2nd-play-apache-and-firewalld.yml
+  564  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  565  ansible-navigator run -m stdout playbook-3rd-play-apache-and-firewalld-vars.yml --syntax
+  566  ansible-navigator run -m stdout playbook-3rd-play-apache-and-firewalld-vars.yml 
+  567  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  568  ansible-navigator run -m stdout playbook-3rd-play-apache-and-firewalld-vars.yml --syntax
+  569  ansible-navigator run -m stdout playbook-3rd-play-apache-and-firewalld-vars.yml 
+  570  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  571  ansible-navigator run -m stdout playbook-3rd-play-apache-and-firewalld-vars.yml 
+  572  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  573  ansible-navigator run -m stdout playbook-3rd-play-apache-and-firewalld-vars.yml 
+  574  ansible-navigator run -m stdout -e name=john playbook-3rd-play-apache-and-firewalld-vars.yml 
+  575  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  576  ansible-navigator run -m stdout -e name=data playbook-3rd-play-apache-and-firewalld-vars.yml 
+  577  ansible-navigator run -m stdout  playbook-3rd-play-apache-and-firewalld-vars.yml -e name=john 
+  578  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  579  ll
+  580  git status 
+  581  rm -rf apache 
+  582  ll
+  583  git status 
+  584  git add .
+  585  git status 
+  586  git branch 
+  587  git commit -m "update"
+  588  git push 
+  589  vim playbook-3rd-play-apache-and-firewalld-vars.yml 
+  590  cp -rpv playbook-3rd-play-apache-and-firewalld-vars.yml playbook-4th-play-apache-and-firewalld-vars_files.yml 
+  591  vim playbook-4th-play-apache-and-firewalld-vars_files.yml 
+  592  vim vars.yaml 
+  593  vim playbook-4th-play-apache-and-firewalld-vars_files.yml 
+  594  vim -O playbook-4th-play-apache-and-firewalld-vars_files.yml vars.yaml 
+  595  ansible-navigator run -m stdout playbook-4th-play-apache-and-firewalld-vars_files.yml --syntax
+  596  ansible-navigator run -m stdout playbook-4th-play-apache-and-firewalld-vars_files.yml
+  597  vim -O playbook-4th-play-apache-and-firewalld-vars_files.yml vars.yaml 
+  598  vim vars.yaml 
+  599  vim -O playbook-4th-play-apache-and-firewalld-vars_files.yml vars.yaml 
+  600  ansible-navigator run -m stdout playbook-4th-play-apache-and-firewalld-vars_files.yml
+  601  vim -O playbook-4th-play-apache-and-firewalld-vars_files.yml vars.yaml 
+  602  ansible-navigator run -m stdout playbook-4th-play-apache-and-firewalld-vars_files.yml
+  603  cd ..
+  604  ll
+  605  mkdir session-03
+  606  cd session-03/
+  607  cp -rpv ../session-02/ansible.cfg .
+  608  cp -rpv ../session-02/ansible-navigator.yml 
+  609  cp -rpv ../session-02/ansible-navigator.yml .
+  610  cp -rpv ../quick-recap/inventory .
+  611  cp -rpv ../quick-recap/ansible.cfg .
+  612  ll
+  613  vim playbooks-facts_calling.yml 
+  614  ansible prod -m setup |less
+  615  ansible_default_ipv4.address
+  616  vim playbooks-facts_calling.yml 
+  617  ansible-playbook run -m stdout playbooks-facts_calling.yml 
+  618  ansible-navigator run -m stdout playbooks-facts_calling.yml 
+  619  git status 
+  620  git add .
+  621  git status 
+  622  ll
+  623  git add .
+  624  git status 
+  625  git commit "update"
+  626  git commit -m "update"
+  627  git push 
+  628  ll
+  629  vim playbooks-facts_calling.yml 
+  630  ansible-navigator run -m stdout playbooks-facts_calling.yml 
+  631  vim playbooks-facts_calling.yml 
+  632  ll
+  633  vim playbooks-facts_calling.yml 
+  634  ansible-navigator run -m stdout playbooks-facts_calling.yml 
+  635  ansible prod -m setup |less
+  636  ll
+  637  cp -rpv playbooks-facts_calling.yml playbooks-facts_calling-example02.yml 
+  638  vim playbooks-facts_calling-example02.yml 
+  639  ansible prod -m setup |less
+  640  vim playbooks-facts_calling-example02.yml 
+  641  ansible-navigator run -m stdout playbooks-facts_calling-example02.yml --syntax
+  642  ansible-navigator run -m stdout playbooks-facts_calling-example02.yml 
+  643  ll
+  644  cd /tmp/
+  645  git clone https://github.com/cprakash2118/cisco-ansible
+  646  grep -ir facts *
+  647  grep -ir facts cisco-ansible/
+  648  grep -ir general cisco-ansible/
+  649  grep -ir "facts.d" cisco-ansible/
+  650  cd -
+  651  ll
+  652  vim custom.fact
+  653  vim installing_facts.yml 
+  654  vim -O custom.fact installing_facts.yml 
+  655  ll
+  656  mv custom.fact chandra.fact 
+  657  vim installing_facts.yml 
+  658  vim -O chandra.fact installing_facts.yml 
+  659  ansible web -m shell -a "ls -ld /etc/ansible/facts.d" 
+  660  ansible web -m shell -a "cat /etc/ansible/facts.d/chandra.fact" 
+  661  ansible-navigator run -m stdout installing_facts.yml --syntax 
+  662  vim installing_facts.yml 
+  663  ansible-navigator run -m stdout installing_facts.yml --syntax 
+  664  ansible web -m setup |grep chandra 
+  665  ansible web -m setup |less
+  666  ansible-navigator run -m stdout installing_facts.yml
+  667  ansible web -m setup |grep chandra 
+  668  ansible web -m setup |less
+  669  vim using_custom_facts.yml 
+  670  ansible-navigator run -m stdout using_custom_facts.yml --syntax 
+  671  ansible-navigator run -m stdout using_custom_facts.yml 
+  672  ssh servera -l root
+  673  ansible web -m setup |less
+  674  vim -O installing_facts.yml using_custom_facts.yml chandra.fact 
+  675  vim -O chandra.fact installing_facts.yml using_custom_facts.yml 
+  676  ansible-navigator run -m stdout installing_facts.yml
+  677  vim chandra.fact 
+  678  ansible-navigator run -m stdout installing_facts.yml
+  679  ansible web -m setup |less
+  680  git add .
+  681  git status 
+  682  git commit -m update
+  683  git push 
+  684  vim -O chandra.fact installing_facts.yml using_custom_facts.yml 
+  685  ll
+  686  vim chandra.fact 
+  687  vim installing_facts.yml 
+  688  vim -O chandra.fact installing_facts.yml using_custom_facts.yml 
+  689  cd work-02/
+  690  ll
+  691  cd RH294v9-14Oct23/
+  692  ll
+  693  cd session-03/
+  694  pwd
+  695  ll
+  696  pwd
+  697  cd /tmp/
+  698  ll
+  699  ls
+  700  cd cisco-ansible/
+  701  pwd
+  702  ll
+  703  grep -ir password_hash *
+  704  cd -
+  705  cd 
+  706  cd work-02/
+  707  pwd
+  708  ll
+  709  cd RH294v9-14Oct23/
+  710  ll
+  711  cd session-03/
+  712  ll
+  713  vim root_password_reset.yml 
+  714  ansible-navigator doc ansible.builtin.user
+  715  ansible-navigator doc ansible.builtin.user -m stdout 
+  716  !
+  717  vim root_password_reset.yml 
+  718  vim root_pass.yml
+  719  ansible-vault create root_pass.yml
+  720  cat root_pass.yml 
+  721  ansible-vault view root_pass.yml
+  722  vim pass.txt
+  723  cat pass.txt 
+  724  ansible-vault --help 
+  725  ansible-playbook --help | grep vault 
+  726  #ansible-vault view root_pass.yml --vault-password-file=
+  727  ll
+  728  ls -lrth 
+  729  ansible-vault view root_pass.yml --vault-password-file=pass.txt 
+  730  ansible-navigator run -m stdout root_password_reset.yml --vault-password-file=pass.txt --syntax
+  731  #ansible-navigator run -m stdout root_password_reset.yml --vault-password-file=pass.txt --syntax
+  732  ansible-navigator run -m stdout root_password_reset.yml --syntax
+  733  ansible-playbook --help | grep vault 
+  734  ansible-navigator run -m stdout root_password_reset.yml --ask-vault-password --syntax
+  735  ansible-navigator run -m stdout root_password_reset.yml --vault-password-file=pass.txt 
+  736  ansible-vault edit root_pass.yml --vault-password-file=pass.txt 
+  737  ansible-navigator run -m stdout root_password_reset.yml --vault-password-file=pass.txt 
+  738  vim -O root_password_reset.yml root_pass.yml pass.txt 
+  739  vim -O root_password_reset.yml root_pass.yml
+  740  vim root_password_reset.yml 
+  741  ssh servera -l root
+  742  ansible-navigator run -m stdout root_password_reset.yml --vault-password-file=pass.txt 
+  743  ssh servera -l root
+  744  vim root_password_reset.yml 
+  745  ansible-navigator run -m stdout root_password_reset.yml --vault-password-file=pass.txt 
+  746  ssh servera -l root
+  747  ansible-vault rekey root_pass.yml --vault-password-file=pass.txt 
+  748  ansible-navigator run -m stdout root_password_reset.yml --vault-password-file=pass.txt 
+  749  vim pass.txt 
+  750  ansible-navigator run -m stdout root_password_reset.yml --vault-password-file=pass.txt 
+  751  vim root_password_reset.yml 
+  752  history 
+  753  history > history.txt
