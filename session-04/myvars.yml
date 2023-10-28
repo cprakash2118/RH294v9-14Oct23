@@ -1,0 +1,12 @@
+---
+
+    - required_pkgs: 
+        - httpd
+        - firewalld 
+    - required_services: 
+        - httpd
+        - firewalld 
+    - port_added:
+        - http
+        - https
+

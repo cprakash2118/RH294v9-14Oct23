@@ -1,0 +1,25 @@
+---
+- name: COndition example 
+  #hosts: dev 
+  hosts: all
+  vars:
+     name_user: john 
+  tasks:
+    - name: Display-01 
+      ansible.builtin.debug:
+         msg: "Welcome to Ansible - Task-01"
+      #when: true 
+      #when: name_user1 is defined 
+      #when: name_user1 is not defined 
+      #when: inventory_hostname in groups['test']
+      #when: 
+      #   - inventory_hostname in groups['test']
+      #   - name_user1 is not defined
+      #   - name_user is not  defined
+      #when: inventory_hostname in groups['test'] and  name_user1 is not defined and name_user is not  defined
+      #when: inventory_hostname in groups['test'] and  name_user1 is not defined or name_user is not  defined
+      #when: inventory_hostname in groups['test'] and  name_user1 is not defined and name_user is  defined
+    - name: Display-02 
+      ansible.builtin.debug:
+         msg: "Welcome to Ansible - Task-02 - {{ansible_facts['distribution']}}  -- {{ansible_facts['distribution_major_version']}}"
+      #when: true 

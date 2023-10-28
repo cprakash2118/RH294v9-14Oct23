@@ -1,0 +1,17 @@
+---
+- name: Register loop example
+  hosts: dev 
+  tasks:
+    - name: DIsplay 
+      ansible.builtin.shell: systemctl status rsyslog &> /dev/null 
+      ignore_errors: yes
+      register: echo_output_var
+
+    #- name: Print 
+    #  ansible.builtin.debug:
+    #     var: echo_output_var
+
+    - name: Print2 
+      ansible.builtin.debug:
+         msg: "Service is running"
+      when: echo_output_var.rc == 0 

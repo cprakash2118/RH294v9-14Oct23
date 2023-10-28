@@ -1,0 +1,9 @@
+---
+- name: COndition example 
+  hosts: dev 
+  tasks:
+    - name: Display-01 
+      ansible.builtin.debug:
+         msg: "Welcome to Ansible - Task-01"
+      #when: true 
+      when: false

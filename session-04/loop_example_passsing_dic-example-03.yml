@@ -1,0 +1,42 @@
+---
+- name: Dictionary as input to loop 
+  hosts: dev
+  vars: 
+    - group_list:
+        - unixadm 
+        - dbadm 
+        - middleware
+        - wintel 
+
+  tasks:
+    - name: Create Groups 
+      ansible.builtin.group:
+         name: "{{ item }}"
+         state: present 
+      loop: "{{ group_list }}"
+      ## Passing list to loop
+
+    - name: Adding users as per requirment.
+      ansible.builtin.user:
+         name: "{{ item.user_name }}"
+         groups: "{{ item.group_name }}"
+         uid: "{{ item.uid_no }}"
+         password: "{{ 'redhat' | password_hash('sha512') }}"
+      loop:
+        - user_name: user1
+          group_name: unixadm
+          uid_no: 33221
+
+        - user_name: user2
+          group_name: dbadm 
+          uid_no: 33222
+
+        - user_name: user3
+          group_name: middleware
+          uid_no: 33223
+
+        - user_name: user4 
+          group_name: wintel
+          uid_no: 33224
+
+      ## Passing dic to loop

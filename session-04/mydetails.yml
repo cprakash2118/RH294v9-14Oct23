@@ -1,0 +1,14 @@
+
+    - group_list:
+        - unixadm 
+        - dbadm 
+        - middleware
+        - wintel 
+
+    - users_detail:
+        - {user_name: user1, group_name: unixadm, uid_no: 33221}
+        - {user_name: user2, group_name: dbadm, uid_no: 33222}
+        - {user_name: user3, group_name: middleware, uid_no: 33223}
+        - {user_name: user4, group_name: wintel, uid_no: 33224}
+
+      ## Passing dic to loop

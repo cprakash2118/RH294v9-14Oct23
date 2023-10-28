@@ -1,0 +1,43 @@
+---
+- name: Apache deployment 
+  hosts: all 
+  vars:
+    - required_pkgs: 
+        - httpd
+        - firewalld 
+    - required_services: 
+        - httpd
+        - firewalld 
+    - port_added:
+        - http
+        - https
+
+  tasks:
+    - name: Install required packages.
+      ansible.builtin.yum: 
+        name: "{{ required_pkgs }}"
+        state: present 
+      when: inventory_hostname in groups['dev']
+
+    - name: STart & enable required services.
+      ansible.builtin.service:
+        name: "{{ item }}" 
+        state: started 
+        enabled: true 
+      loop: "{{ required_services }}"
+      when: inventory_hostname in groups['dev']
+
+    - name: Adding port/services to firewall
+      ansible.builtin.firewalld:
+        service: "{{ item }}"
+        immediate: yes
+        permanent: yes
+        state: enabled
+      loop: "{{ port_added }}"
+      when: inventory_hostname in groups['dev']
+
+    - name: App deployment 
+      ansible.builtin.copy:
+        content: "This is mu web serveri\n"
+        dest: /var/www/html/index.html 
+      when: inventory_hostname in groups['dev']

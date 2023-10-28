@@ -1,0 +1,30 @@
+---
+- name: Handler example - debug module 
+  hosts: dev
+  force_handlers: true
+  tasks:
+     - name: SOme config change on ssh 
+       ansible.builtin.debug:
+          msg: "Task-01 done - SSH config updated"
+       changed_when: true
+       notify:
+          - restart sshd service 
+
+     - name: task-02 - debug module for print only
+       ansible.builtin.debug:
+          msg: "Task-02 done"
+       #changed_when: true
+
+     - name: task-03 - uptime command using shell module
+       ansible.builtin.shell: uptime
+       changed_when: false
+     
+     - name: task-04 - using failed_when module
+       ansible.builtin.shell: uptime
+       failed_when: true
+
+  handlers:
+     - name: restart sshd service
+       ansible.builtin.service:
+           name: sshd
+           state: restarted 

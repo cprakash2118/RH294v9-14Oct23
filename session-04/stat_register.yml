@@ -1,0 +1,20 @@
+---
+- name: Stat & register modules.
+  hosts: dev 
+  vars:
+     - remote_path: /var/www/html/vhost01
+  tasks:
+     - name: Check the directory.
+       ansible.builtin.stat:
+          path: "{{ remote_path }}" 
+       register: output_dir 
+
+     - name: Display 
+       ansible.builtin.debug: 
+          var: output_dir
+
+     - name: Create dir
+       ansible.builtin.file:
+          path: "{{ remote_path }}"
+          state: directory 
+       when: output_dir.stat.exists == false

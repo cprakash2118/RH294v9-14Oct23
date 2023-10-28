@@ -1,0 +1,15 @@
+---
+- name: Multiple service restart 
+  hosts: dev 
+  vars:
+    - service_list:
+        - sshd 
+        - httpd
+        - rsyslog 
+  tasks:
+     - name: Multiple services {{ service_list}} restart.
+       ansible.builtin.service: 
+          name: "{{ item }}"
+          state: restarted 
+       loop: "{{ service_list }}" 
+       # Passing list to loop - 1st type example  
