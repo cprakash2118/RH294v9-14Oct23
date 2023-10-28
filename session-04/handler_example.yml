@@ -18,13 +18,36 @@
      - name: task-03 - uptime command using shell module
        ansible.builtin.shell: uptime
        changed_when: false
-     
+
+     - name: SOme config change on abc service 
+       ansible.builtin.debug:
+          msg: "Task-01 done - abc config updated"
+       changed_when: true
+       notify:
+            - abc service 
      - name: task-04 - using failed_when module
        ansible.builtin.shell: uptime
        failed_when: true
+
+     - name: SOme config change on rsyslog
+       ansible.builtin.debug:
+          msg: "Task-01 done - rsyslog config updated"
+       changed_when: true
+       notify:
+           - restart rsyslog
 
   handlers:
      - name: restart sshd service
        ansible.builtin.service:
            name: sshd
+           state: restarted 
+
+     - name: restart rsyslog
+       ansible.builtin.service:
+           name: rsyslog
+           state: restarted 
+
+     - name: abc service
+       ansible.builtin.service:
+           name: rsyslog
            state: restarted 
