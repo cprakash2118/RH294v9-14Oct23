@@ -1,0 +1,68 @@
+---
+- name: Apache config changes.
+  hosts: web 
+  vars:
+    - required_pkg:
+         - httpd
+         - firewalld 
+         - mutt 
+    - required_svc:
+         - httpd
+         - firewalld 
+    - required_ports:
+         - http
+         - https
+    - remote_path: /var/www/vhosts/servera/ 
+  handlers: 
+     - name: restart_apache
+       ansible.builtin.service:
+          name: httpd 
+          state: restarted
+  tasks:
+    - name: Install all required packages - {{ required_pkg }}.
+      ansible.builtin.dnf: 
+         name: "{{ required_pkg }}"
+         state: present 
+
+    - name: Start & Enable required services - {{ required_svc }}.
+      ansible.builtin.service:
+         name: "{{ item }}"
+         state: started 
+         enabled: true 
+      loop: "{{ required_svc }}"
+
+    - name: Adding required_port - {{required_ports }}.
+      ansible.posix.firewalld:
+         service: "{{ item }}"
+         immediate: true 
+         permanent: true 
+         state: enabled
+      loop: "{{ required_ports }}"
+
+    - name: Apache config change.
+      ansible.builtin.copy:
+          src: httpd_config_file.conf
+          dest: /etc/httpd/conf.d/apache-custom.conf 
+      notify:
+          - restart_apache 
+
+    - name: Check the directory.
+      ansible.builtin.stat:
+          path: "{{ remote_path }}"
+      register: output_dir
+
+    - name: Display
+      ansible.builtin.debug:
+          var: output_dir
+
+    - name: Create dir
+      ansible.builtin.file:
+          path: "{{ remote_path }}"
+          state: directory
+          recurse: true 
+      when: output_dir.stat.exists == false
+
+    - name: Deploy application - index.html 
+      ansible.builtin.copy:
+          content: "This is my web server - {{ inventory_hostname }} !!!"
+          dest: "{{ remote_path }}/index.html"
