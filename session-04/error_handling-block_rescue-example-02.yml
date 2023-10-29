@@ -1,0 +1,35 @@
+---
+- name: Error handling 
+  hosts: web2 
+  tasks:
+    - name: Block defined here, below task.
+      block:
+        - name: Install package - 1st task in block.
+          ignore_errors: true 
+          ansible.builtin.dnf:
+              name: bangalore 
+              state: present 
+
+        - name: STart and enable service - 2nd task in block.
+          ansible.builtin.service:
+              name: delhi 
+              state: started 
+              enabled: true 
+          #ignore_errors: true 
+
+      #name: Rescue defined her, below rescue's tasks.
+      rescue: 
+        - name: Display-01 - from rescue 
+          ansible.builtin.debug:
+            msg: "1st task in block not having correct package name."
+
+        - name: Display-02 - from rescue 
+          ansible.builtin.debug:
+            msg: "2nd task in block not having correct service name."
+
+      #name: Alway execute - notify to management, handover the server/cluster to app team.
+      always: 
+        - name: Display-03 - from always 
+          ansible.builtin.debug:
+            msg: "'alway' is always execute."
+...

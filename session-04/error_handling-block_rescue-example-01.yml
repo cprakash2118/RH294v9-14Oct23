@@ -3,25 +3,24 @@
   hosts: web2 
   tasks:
     - name: Block defined here, below task.
+      vars:
+        value1: block_define_var
       block:
-        - name: Install package - 1st task in block.
-          ignore_errors: true 
-          ansible.builtin.dnf:
-              name: bangalore 
-              state: present 
+        - name: 1st task in block.
+          ansible.builtin.debug:
+              msg: "This is my 1st task - block part - {{value1}}"
+          changed_when: true 
 
-        - name: STart and enable service - 2nd task in block.
-          ansible.builtin.service:
-              name: delhi 
-              state: started 
-              enabled: true 
-          #ignore_errors: true 
+        - name: 2nd task in block.
+          ansible.builtin.debug:
+              msg: "This is my 2nd tasks - block part - using failed_when"
+          failed_when: true
 
       #name: Rescue defined her, below rescue's tasks.
       rescue: 
         - name: Display-01 - from rescue 
           ansible.builtin.debug:
-            msg: "1st task in block not having correct package name."
+            msg: "1st task in block not having correct package name. - {{value1}}"
 
         - name: Display-02 - from rescue 
           ansible.builtin.debug:
@@ -31,5 +30,9 @@
       always: 
         - name: Display-03 - from always 
           ansible.builtin.debug:
-            msg: "'alway' is always execute."
+            msg: "'alway' is always execute. - {{value1}}"
+
+    - name: New tasks ############################## Not part of block
+      ansible.builtin.debug:
+          msg: "This taks - Not part of block - {{value1}}"
 ...
