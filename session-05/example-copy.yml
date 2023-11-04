@@ -1,0 +1,22 @@
+---
+- name: Copy example 
+  hosts: dev 
+  tasks:
+    - name: Copy example 
+      ansible.builtin.copy:
+        src: /etc/hosts
+        dest: /tmp/hosts
+        remote_src: true 
+
+    - name: ONce copied 
+      ansible.builtin.copy:
+        src: /etc/fstab
+        dest: /var/fstab 
+        setype: httpd_sys_content_t
+        owner: student
+        group: wheel
+        mode: '0644'
+        remote_src: true 
+
+
+

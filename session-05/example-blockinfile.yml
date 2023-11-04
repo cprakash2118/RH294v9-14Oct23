@@ -1,0 +1,17 @@
+---
+- name: blockinfile module 
+  hosts: dev 
+  tasks:
+
+   - name: Copy file in same remote system.
+     ansible.builtin.copy:
+        src: /etc/ssh/sshd_config
+        dest: /var/tmp/sshd_config-2
+        remote_src: true 
+
+   - name: Insert/Update "PasswordAuthentication yes" configuration block in /etc/ssh/sshd_config
+     ansible.builtin.blockinfile:
+       path: /var/tmp/sshd_config
+       block: |
+         PasswordAuthentication no
+ 

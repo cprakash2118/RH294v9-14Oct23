@@ -1,0 +1,8 @@
+---
+- name: Example fetch 
+  hosts: all
+  tasks:
+    - name: Fetch information.
+      ansible.builtin.fetch:
+         src: /etc/fstab 
+         dest: mydata 
