@@ -1,0 +1,8 @@
+---
+- name: Jinja example 
+  hosts: all 
+  tasks: 
+    - name: Template a file to /etc/file.conf
+      ansible.builtin.template:
+        src: jinja-example-01.j2
+        dest: /root/jinja-example-01.txt

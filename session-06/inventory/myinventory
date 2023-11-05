@@ -1,0 +1,14 @@
+[web]
+server[a:b].lab.example.com 
+
+[db]
+serverc.lab.example.com 
+
+[lb]
+serverd.lab.example.com 
+
+
+[envall:children]
+web
+db
+lb
