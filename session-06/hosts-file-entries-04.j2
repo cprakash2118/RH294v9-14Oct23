@@ -1,0 +1,13 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+
+##############
+## CHG87326487
+Chandra Prakash
+
+{% for server_name in groups['dev']  %}
+{{ hostvars[server_name]['ansible_facts']['default_ipv4']['address'] }}    {{ hostvars[server_name]['ansible_facts']['fqdn'] }}  {{ hostvars[server_name]['ansible_facts']['hostname'] }}
+
+{% endfor %}
+

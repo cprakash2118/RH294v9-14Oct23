@@ -4,5 +4,7 @@
   tasks: 
     - name: Template a file to /etc/hosts
       ansible.builtin.template:
-        src: hosts-file-entries.j2
-        dest: /root/jinja-example-01.txt
+        #src: hosts-file-entries-03.j2
+        src: hosts-file-entries-04.j2
+        #dest: /root/jinja-example-01.txt
+        dest: /etc/hosts-03
