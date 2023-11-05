@@ -18,5 +18,18 @@
         mode: '0644'
         remote_src: true 
 
+    - name: ONly permission 
+      ansible.builtin.copy:
+        src: /tmp/hosts2
+        dest: /tmp/hosts2
+        remote_src: true
+        owner: student
+        group: student
+        #mode: u+rw,g+wx,o-rwx
+        mode: u+rw-,g+wx-,o-rwx
+        force: yes
+
+    - name: Using shell 
+      ansible.builtin.shell: chmod 600 /tmp/hosts2
 
 

@@ -1,0 +1,20 @@
+---
+- name: stat module using 
+  hosts: dev
+  tasks:
+    - name: start module using 
+      ansible.builtin.stat: 
+         path: /mydata-ansible
+      register: output
+
+    - name: Display stat output 
+      ansible.builtin.debug:
+         var: output
+
+    - name: Create dir if not 
+      ansible.builtin.file:
+         path: /mydata-ansible
+         state: directory 
+         owner: student
+         group: student
+      when: output.stat.exists==false

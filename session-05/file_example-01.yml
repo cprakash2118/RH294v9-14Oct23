@@ -1,0 +1,28 @@
+---
+- name: file module 
+  hosts: dev 
+  tasks:
+    - name: Creating dir 
+      ansible.builtin.file:
+        path: /work
+        owner: root
+        group: root
+        #mode: '1777'
+        state: directory
+      changed_when: false 
+ 
+    - name: Create a symbolic link
+      ansible.builtin.file:
+        src: /work
+        dest: /var/tmp/symlink
+        owner: student
+        group: student
+        state: link
+      changed_when: false 
+
+    - name: Chanding permission
+      ansible.builtin.file:
+        path: /work
+        owner: root
+        group: root
+        mode: '1775'
