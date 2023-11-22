@@ -1,0 +1,25 @@
+---
+# tasks file for apache
+- name: install apache packages.
+  ansible.builtin.dnf: 
+      name: "{{ apache_pkg }}"
+      state: present 
+
+- name: Start and enable apache services.
+  ansible.builtin.service: 
+      name: "{{ apache_svc }}"
+      state: started 
+      enabled: yes 
+
+- name: Deployment of index.html 
+  ansible.builtin.copy:
+      content: "This is my web server \n"
+      dest: /var/www/html/index.html 
+
+- name: restart apache services.
+  ansible.builtin.debug:
+      msg: "restart apache"
+  changed_when: true 
+  notify:
+      - restart apache
+...
