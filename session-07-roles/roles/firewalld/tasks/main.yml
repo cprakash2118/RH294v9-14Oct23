@@ -1,0 +1,20 @@
+---
+# tasks file for firewalld
+- name: install firewalld packages.
+  ansible.builtin.dnf:
+      name: "{{ firewalld_pkg }}"
+      state: present
+
+- name: Start and enable firewalld services.
+  ansible.builtin.service:
+      name: "{{ firewalld_svc }}"
+      state: started
+      enabled: yes
+
+- name: Addin port http 
+  ansible.builtin.firewalld:
+     service: "{{ item }}"
+     immediate: yes
+     permanent: yes
+     state: enabled
+  loop: "{{ ports }}" 
